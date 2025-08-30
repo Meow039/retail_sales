@@ -23,7 +23,7 @@ The project was built step by step by following [this YouTube tutorial](https://
 
 ### 1. Database Setup
 ```sql
-CREATE DATABASE p1_retail_db;
+CREATE DATABASE project01;
 
 CREATE TABLE retail_sales
 (
@@ -39,3 +39,56 @@ CREATE TABLE retail_sales
     cogs FLOAT,
     total_sale FLOAT
 );
+
+
+2. Data Exploration & Cleaning
+Record Count – Count total records.
+Customer Count – Find unique customers.
+Category Count – Identify unique product categories.
+Null Value Check – Detect and delete records with nulls
+
+SELECT COUNT(*) FROM retail_sales;
+SELECT COUNT(DISTINCT customer_id) FROM retail_sales;
+SELECT DISTINCT category FROM retail_sales;
+
+-- Delete null records
+DELETE FROM retail_sales
+WHERE sale_date IS NULL 
+   OR sale_time IS NULL 
+   OR customer_id IS NULL 
+   OR gender IS NULL 
+   OR age IS NULL 
+   OR category IS NULL 
+   OR quantity IS NULL 
+   OR price_per_unit IS NULL 
+   OR cogs IS NULL;
+
+
+
+## 3. Business Analysis & SQL Queries
+
+
+### 1. Retrieve all columns for sales made on `2022-11-05`
+```sql
+SELECT *
+FROM retail_sales
+WHERE sale_date = '2022-11-05';
+
+
+2. Retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 4 in the month of Nov-2022
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
